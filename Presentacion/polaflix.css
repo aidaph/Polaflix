@@ -1,0 +1,295 @@
+ body{
+   padding-bottom: 40%;
+   margin: 0px;
+   padding:0px;
+   width: 100%;
+   height: 100%;
+}
+#header {
+  height: 100%;
+  width: 100%;
+  cclear: both;
+}
+#header #cabecera img {
+  margin: 0 auto;
+  width: 100%;
+  float: left;
+  height: 100%;
+}
+#Navegador {
+  float: left;
+  display: block;
+  width: 100%;
+  background:#B0C4DE;
+  margin-top: -0.75%;
+}
+#Navegador #logo_user{
+  cclear: both;
+  float:left;
+  position: relative;
+  margin-top: -3.5%;
+}
+#Navegador #navegadorLista{
+  cclear:both;
+  display:block;
+  list-style-type: none;
+  width: 100%;
+  border-bottom: solid;
+  border-width: 1px;
+}
+#Navegador #navegadorLista ul{
+  list-style-type: none;
+  overflow: hidden;
+  float: left;
+  margin-left: 8%;
+}
+#Navegador #navegadorLista ul .active{
+  border-bottom: solid;
+  border-bottom-color: green;
+}
+#Navegador #navegadorLista ul li{
+  float:left;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  display: inline;
+  padding: 5px;
+}
+#Navegador #navegadorLista ul li a{
+  text-decoration: none;
+  color: black;
+}
+#Navegador #navegadorLista ul li:hover{
+  background: #EEE8AA;
+  padding: 5px;
+}
+#navSeries{
+  margin:auto;
+  width: 100%;
+}
+#navSeries .empezadas ul, #navSeries .pendientes ul{
+  position:relative;
+  list-style-type: none;
+  overflow: hidden;
+  border-bottom: solid;
+  border-width: 1px;
+  color: black;
+  padding-bottom: 15px;
+}
+#navSeries .empezadas ul li, #navSeries .pendientes ul li{
+  text-decoration: none;
+  list-style-type: none;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  padding: 2px;
+  width: 120%;
+}
+#serie #listaCapitulos ul li{
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+#navSeries .empezadas ul li a, #navSeries .pendientes ul li a{
+  text-decoration: none;
+  width: auto;
+}
+#serie #listaCapitulos ul li a{
+  text-decoration: none;
+  color: black;
+  /*width: auto;*/
+}
+#navSeries .empezadas ul li a:hover, #navSeries .pendientes ul li a:hover{
+  border-bottom: solid;
+  border-width: 1px;
+}
+.dropbtn{
+  background-color: #C0C0C0;
+  color:white;
+  padding:16px;
+  font-size: 16px;
+  border: none;
+  cursor:pointer;
+}
+.dropdown{
+  position:relative;
+  display:inline-block;
+}
+.dropdown-content{
+  display: none;
+  position:absolute;
+  background-color: #C0C0C0;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index:1;
+}
+.dropdown-content a{
+  color:black;
+  padding; 12px 16px;
+  text-decoration: none;
+  display:block;
+}
+.dropdown-content a:hover{
+  background-color: #C0C0C0;
+}
+.dropdown:hover .dropdown-content{
+  display: block;
+}
+.dropdown:hover .dropbtn{
+  background-color: #C0C0C0;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: ProximaNovaSB,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin-left: 10px;
+    padding-top: 10px;
+}
+.w3-light-grey,
+#serie {
+  margin:auto;
+}
+#serie ul li{
+  margin:auto;
+  position:left;
+  list-style-type: none;
+  overflow: hidden;
+}
+#serie a #imageSerie {
+  float:left;
+  padding: 5%;
+}
+#serie .verTemporada{
+  padding-left: 5%;
+  position:relative;
+  float:left;
+  width: 60%;
+}
+#serie .tipoSerie{
+  float:right;
+  position: relative;
+  width: auto;
+  padding: 2px;
+  border: solid;
+  border-width: 2px;
+  border-radius: 10px;
+}
+#serie .verTemporada #listaCapitulos{
+  position:relative;
+}
+#serie .verTemporada #listaCapitulos #capitulo{
+  margin: auto;
+  border:solid;
+  border-width: 1px;
+  padding-left: 1px;
+  /*width: 60%;*/
+}
+#serie .verTemporada #listaCapitulos #capitulo .VerCapi{
+  float:right;
+}
+#Navegador2 #navegadorABC{
+  float: left;
+  display:block;
+  position: relative;
+  padding: 2px;
+  width: 100%;
+  border-bottom: solid;
+  border-width: 1px;
+}
+#Navegador2 #navegadorABC ul li{
+  float:left;
+  display:inline;
+  padding:2px;
+  font-size: 20px;
+}
+#Navegador2 #navegadorABC ul li{
+  float: left;
+}
+#Navegador2 #navegadorABC ul li a{
+  text-decoration: none;
+  list-style-type: none;
+  overflow: hidden;
+  color: black;
+}
+#Navegador2 #navegadorABC ul li a:hover{
+  border-bottom: solid;
+  border-width: 1px;
+}
+#Navegador2 #navegadorABC ul li input{
+  float:left;
+  margin: 22%;
+  border-width: 2px;
+}
+.serieNameInitial ul li a{
+  float:left;
+}
+
+#navSerie{
+  position:relative;
+  float: left;
+  width: 100%;
+}
+#navSerie ul li {
+  padding: 2px;
+  font-size: 20px;
+  list-style-type: none;
+}
+#navSerie ul li a, .serieNameInitial h4 a{
+  text-decoration: none;
+  list-style-type: none;
+  overflow: hidden;
+  color:black;
+}
+#navSerie ul li a:hover,.serieNameInitial h4 a:hover{
+  border-bottom: solid;
+  border-width: 1px;
+}
+#navSerie ul li button{
+  padding-left: 10px;
+}
+.serieNameInitial h4{
+  position:relative;
+  float:left;
+  padding: 5px;
+  font-size: 20px;
+}
+.serieNameInitial h4 a img{
+  position: relative;
+  float:left;
+  padding: 5px;
+  height: 250px;
+  width: 170px;
+}
+.serieNameInitial ul li{
+  text-decoration: none;
+  list-style-type: none;
+}
+#Cargos {
+  position:relative;
+  float: left;
+  margin-left: 30%;
+}
+#Cargos table, td, th {
+    border: 1px solid #ddd;
+    text-align: left;
+}
+#Cargos table {
+    border-collapse: collapse;
+    width: 100%;
+}
+#Cargos th, td {
+
+    padding: 15px;
+}
+
+#Cargos i {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 5px;
+}
+.arrowright {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}

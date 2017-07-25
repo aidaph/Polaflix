@@ -1,0 +1,25 @@
+<div id="Cargos" ng-app="myApp" ng-controller="CargosCtrl as ctrl">
+  <h3> {{message}} </h3>
+  <h2>
+    <a class="gotoPrevFactura" href ng-click="ctrl.getFactura(numFactura-1)">
+       <i class="left"></i></a>
+       {{fechaFactura | date:' MMMM yyyy'}}
+    <a class="gotoPrevFactura" href ng-click="ctrl.getFactura(numFactura+1)">
+       <i class="arrowright"></i></a>
+     </h2>
+  <table>
+    <tr>
+      <th>Fecha</th>
+      <th>Serie</th>
+      <th>Numero Capitulo</th>
+      <th>Precio</th>
+    </tr>
+    <tr ng-repeat="capiV in capitulosVistos">
+      <td title="'Fecha'">{{ capiV.fecha | date:'yyyy-MM-dd'}}</td>
+      <td title="'Serie'">{{ nombreSerie[$index]}}</td>
+      <td title="'Num'">{{ numTempo[$index] }}x{{ capiV.capitulo.num }}</td>
+      <td title="'Precio'">{{ capiV.capitulo.precio }}€</td>
+    </tr>
+  </table>
+  <h4 id:"total"> Total: {{ getTotal() }}€</h4>
+</div>

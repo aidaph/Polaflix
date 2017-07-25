@@ -1,0 +1,31 @@
+<div id="navSeries">
+  <div class="empezadas" ng-controller="seriesEmpezadasCtrl as ctrl">
+   <h3>Empezadas</h3>
+    <!--<img id="Orange" src="..\imagenes\orange_is_the_new_black.jpg" href="#"/>-->
+      <ul>
+        <li  ng-repeat="serieEmp in seriesEmpezadas">
+          <a class="show_serie_link" href ng-click="ctrl.goToSerie(serieEmp.id)">
+            <!-- <img id="Orange" ng-src={{serie.imageUrl}}/>-->
+            {{serieEmp.name}} </a> </li>
+      </ul>
+    </div>
+    <div class="pendientes" ng-controller="seriesPendientesCtrl as ctrl">
+     <h3> Pendientes </h3>
+      <!--<img id="Orange" src="..\imagenes\orange_is_the_new_black.jpg" href="#"/>-->
+        <ul>
+          <li ng-repeat="seriePen in seriesPendientes">
+             <a class="show_serie_link" href ng-click="ctrl.goToSerie(seriePen.id)">
+                <!--<img id="Orange" ng-src={{serie.imageUrl}}/>-->
+                <div id="nombreSerie">
+                  {{seriePen.name}}
+                </div>
+            </a>
+          </li>
+
+        </ul>
+    </div>
+
+    <div id="Terminadas">
+      <h3> Terminadas </h3>
+    </div>
+</div>

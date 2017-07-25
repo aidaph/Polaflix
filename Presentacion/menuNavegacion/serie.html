@@ -1,0 +1,46 @@
+<div id="serie" ng-controller="serieCtrl as ctrl" ng-init="myVar='image.jpg'">
+      <a class="imagen" href ng-click="ctrl.goToSerie(serie.id)">
+        <img id="imageSerie" ng-src={{serie.imageUrl}}/>
+      </a>
+      <div class="verTemporada">
+       <h2>{{serie.name}}
+       <div class="tipoSerie">{{serie.tipoSerie}} </div></h2>
+         <div class="dropdown">
+          <!-- <select class="dropbtn" ng-model="selectedTempo" ng-change="ctrl.getCapis(selectedTempo.num)"
+           ng-options="tempo.num for tempo in temporadas" ng-value="Temporada ">-->
+           <!--ng-change="ctrl.getCapis(value)"-->
+           <select class="dropbtn" ng-model="selectedTempo"
+           ng-change="ctrl.getCapis(selectedTempo)"
+           ng-options="tempo.num as selectedTempo for tempo in temporadas">
+              <!--<option ng-repeat="tempo in temporadas"> {{tempo.num}}</option>-->
+          </select>
+
+            <!--<ul class="submenu" ng-repeat="tempo in temporadas">
+              <li>
+                <a class="show_serie_link" href ng-click="ctrl.getCapis(tempo.num)">
+                    Temporada {{tempo.num}}</a></li>
+            </ul>-->
+      </div>
+      <div id="listaCapitulos">
+           <ul>
+              <li id="capitulo" ng-repeat="capitulo in capitulos">
+                   <!--<a class="show_serie_link" href ng-click="ctrl.showDescripcion()">-->
+                  <h4>
+                    <a class="show_serie_link" href ng-click="IsVisible = !IsVisible">
+                     Capitulo {{capitulo.num}} - {{capitulo.nombre}}
+                    </a>
+                    <div class="VerCapi">
+                    <button class="show_serie_link" href ng-click="ctrl.addCapVisto(capitulo)">
+                      Ver
+                    </button>
+                    <i class="fa fa-eye" aria-hidden="true" style="font-size:24px;"></i>
+                    </div>
+                  </h4>
+                   <div class="capiDescription" ng-show="IsVisible">
+                     <p>{{capitulo.des}}</p>
+                   </div>
+              </li>
+           </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div id="Navegador2">
+  <div id="navegadorABC" class="well sidebar-nav">
+    <ul class="nav nav-list" ng-controller="AgregarCtrl as ctrl">
+     <li ng-repeat="letra in listaABC">
+      <div id="nombreSerie1">
+         <h4>
+           <a class="show_serie_link1" href ng-click="ctrl.showSerieByInitial(letra)">
+            {{letra}}
+           </a>
+         </h4>
+      </div>
+     </li>
+     <li>
+      <form ng-submit="ctrl.searchSerie(inputVal)">
+        <input id="search" ng-model="inputVal" type="text" name="search" placeholder="Search...">
+      </form>
+    </li>
+    </ul>
+  </div>
+</div>
+<div id="navSerie" ng-controller="AgregarCtrl as ctrl">
+  <h4>{{messageError}} </h4>
+  <ul>
+    <li ng-repeat="serie in series">
+        <div id="nombreSerie">
+          <h4>
+            <a class="show_serie_link" href ng-click="IsVisible = !IsVisible">
+             {{serie.name}}
+            </a>
+            <button ng-click="ctrl.addSerieToPendiente(serie)">Agregar</button>
+          </h4>
+           <div class="capiDescription" ng-show="IsVisible">
+             <p>{{serie.descripcion}}</p>
+           </div>
+        </div>
+    </li>
+   </ul>
+</div>
