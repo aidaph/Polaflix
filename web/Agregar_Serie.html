@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<HTML>
+<head>
+  <meta charset="UTF-8" />
+  <TITLE>POlafliX </TITLE>
+  <meta name="viewport" content="width=device-width, initial-scale=1.00">
+  <link rel="stylesheet" href="polaflix.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="polaflixAngularJS.js"></script>
+</head>
+<body>
+  <div id="header">
+    <!--<h1 id="logo">
+      <a href="file:///C:\Users\Aida\Dropbox\Master\SegundoCurso\TEmp\Polaflix\Presentacion\Polaflix.html" title="Polaflix"></a>
+    </h1> -->
+    <div id="cabecera">
+      <a title="Polaflix" href="file:///C:\Users\Aida\Dropbox\Master\SegundoCurso\Applicaciones Empresariales\Polaflix\Presentacion\Polaflix.html">
+        <img src="..\imagenes\Cabecera_Polaflix.jpg" alt="polaflix" />
+      </a>
+    </div>
+    <!-- <div id="bienvenido">
+      <h1> Bienvenido John Snow </h1>
+    </div> -->
+  </div>
+
+  <div id="Navegador">
+   <nav>
+     <div id="logo_user">
+       <a title="Mi Perfil" href="file:///C:\Users\Aida\Dropbox\Master\SegundoCurso\Applicaciones Empresariales\Polaflix\Presentacion\Polaflix.html">
+         <img src="..\imagenes\logo_user.gif" alt="Mi Perfil" />
+       </a>
+     </div>
+     <div id="navegadorLista" class="well sidebar-nav" ng-app="navList">
+       <ul class="nav nav-list" ng-controller="navCtrl">
+				<li ng-class="navClass('Inicio')"><a href="Polaflix.html" >INICIO</a></li>
+				<li ng-class="navClass('Agregar')"><a class="active"title="Agregar Serie" href="Agregar_Serie.html">AGREGAR SERIE</a></li>
+				<li ng-class="navClass('Cargos')"><a href="#">VER CARGOS</a></li>
+			</ul>
+    </div>
+	 </nav><!-- / nav -->
+  </div>
+
+<div id="Navegador2">
+  <nav>
+  <div id="navegadorABC" class="well sidebar-nav" ng-app="navList">
+    <ul class="nav nav-list" ng-controller="navCtrl">
+     <li ng-class="navClass('A')"><a title="A" href="#A">A</a></li>
+     <li ng-class="navClass('B')"><a title="B" href="#B">B</a></li>
+     <li ng-class="navClass('C')"><a title="C" href="#C">C</a></li>
+     <li ng-class="navClass('D')"><a title="D" href="#D">D</a></li>
+     <li ng-class="navClass('E')"><a title="E" href="#E">E</a></li>
+     <li ng-class="navClass('F')"><a title="F" href="#F">F</a></li>
+     <li ng-class="navClass('G')"><a title="G" href="#G">G</a></li>
+     <li ng-class="navClass('H')"><a title="H" href="#H">H</a></li>
+     <li ng-class="navClass('I')"><a title="I" href="#I">I</a></li>
+     <li ng-class="navClass('J')"><a title="J" href="#J">J</a></li>
+     <li ng-class="navClass('K')"><a title="K" href="#K">K</a></li>
+     <li ng-class="navClass('L')"><a title="L" href="#L">L</a></li>
+     <li ng-class="navClass('M')"><a title="M" href="#M">M</a></li>
+     <li ng-class="navClass('N')"><a title="N" href="#N">N</a></li>
+     <li ng-class="navClass('O')"><a title="O" href="#O">O</a></li>
+     <li ng-class="navClass('P')"><a title="P" href="#P">P</a></li>
+     <li ng-class="navClass('Q')"><a title="Q" href="#Q">Q</a></li>
+     <li ng-class="navClass('R')"><a title="R" href="#R">R</a></li>
+     <li ng-class="navClass('S')"><a title="S" href="#S">S</a></li>
+     <li ng-class="navClass('T')"><a title="T" href="#T">T</a></li>
+     <li ng-class="navClass('U')"><a title="U" href="#U">U</a></li>
+     <li ng-class="navClass('V')"><a title="V" href="#V">V</a></li>
+     <li ng-class="navClass('W')"><a title="W" href="#W">W</a></li>
+     <li ng-class="navClass('X')"><a title="X" href="#X">X</a></li>
+     <li ng-class="navClass('Y')"><a title="Y" href="#Y">Y</a></li>
+     <li ng-class="navClass('Z')"><a title="Z" href="#Z">Z</a></li>
+     <li ng-class="navClass('0-9')"><a title="0-9" href="#0-9">0-9</a></li>
+   </ul>
+  </div>
+</nav><!-- / nav -->
+</div>
+
+
+
+</body>

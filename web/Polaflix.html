@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<HTML>
+<head>
+  <meta charset="UTF-8" />
+  <TITLE>POlafliX </TITLE>
+  <meta name="viewport" content="width=device-width, initial-scale=1.00">
+  <meta charset="utf-8">
+	<meta name="viewport" content="width=1040"><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta name="MobileOptimized" content="1040">
+		<meta http-equiv="content-language" content="en">
+  <link rel="stylesheet" href="polaflix.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="scripts/polaflixAngularJS.js"></script>
+  <script src="node_modules\ngStorage\ngStorage.min.js"></script>
+  <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-route.js'></script>
+</head>
+<body>
+  <div id="header">
+    <div id="cabecera">
+      <a title="Polaflix" href="localhost:8000/Polaflix.html">
+        <img src="..\imagenes\banner_twd.jpg" alt="polaflix" />
+      </a>
+    </div>
+  <div id="Navegador">
+   <nav>
+     <div id="logo_user">
+       <a title="Mi Perfil" href="file:///C:\Users\Aida\Dropbox\Master\SegundoCurso\Applicaciones Empresariales\Polaflix\Presentacion\Polaflix.html">
+         <img src="..\imagenes\logo_user.gif" alt="Mi Perfil" />
+       </a>
+     </div>
+     <div id="navegadorLista" class="well sidebar-nav">
+       <ul>
+				 <li ng-class="getClass('/Inicio')"><a href="#!Inicio" title="Inicio">INICIO</a> </li>
+			   <li ng-class="{ active: isActive('/Agregar.html')}"><a href="#!Agregar" title="Agregar Serie">AGREGAR SERIE</a></li>
+				 <li ng-class="{ active: isActive('/Cargos.html')}"><a href="#!Cargos" title="Ver Cargos" href="#">VER CARGOS</a></li>
+			 </ul>
+    </div>
+	 </nav><!-- / nav -->
+  </div>
+</div>
+
+<div class="well sidebar-nav" ng-app="navApp">
+  <div  ng-view></div>
+</div>
+
+ </div>
+</body>

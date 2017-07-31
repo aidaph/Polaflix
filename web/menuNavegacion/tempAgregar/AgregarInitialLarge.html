@@ -1,0 +1,11 @@
+<div class="serieNameInitial" ng-controller="AgregarInitLargeCtrl as ctrl">
+  <h4>
+    <ul>
+      <li ng-repeat="serieInit in seriesInit">
+        <a class="show_serie_link" href ng-click="ctrl.goToSerie(serieInit.id)">
+          <!--<img id="imageSerie2" ng-src={{serieInit.imageUrl}}/>-->
+          <p>{{serieInit.name}}</p> </a>
+      </li>
+    </ul>
+  </h4>
+</div>
