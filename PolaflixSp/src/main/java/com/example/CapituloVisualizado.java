@@ -1,9 +1,13 @@
 package com.example;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 /**
@@ -22,6 +26,9 @@ public class CapituloVisualizado implements Comparable< CapituloVisualizado>
 	// Capitulo visualizado
 	@OneToOne
 	private Capitulo capitulo;
+	@ManyToOne (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "factura_id")
+	private Factura factura;
 	
 	/*
 	 * Constructor para CapituloVisualizado
@@ -33,6 +40,9 @@ public class CapituloVisualizado implements Comparable< CapituloVisualizado>
 	public CapituloVisualizado(int id, Date fecha, Capitulo capitulo){
 		this.id=id;
 		this.fecha=fecha;
+	}
+	public CapituloVisualizado(){
+		
 	}
 	
 	//Getters and setters
@@ -55,24 +65,54 @@ public class CapituloVisualizado implements Comparable< CapituloVisualizado>
 		return this.capitulo;
 	}
 	
-	@Override public int hashCode() {
-	     return this.hashCode();
-	 }
+	
 	
 	@Override
-	public boolean equals(Object other){
-		 if (other == this) return true;
-	     if (!(other instanceof CapituloVisualizado)) {
-	        return false;
-	     }
-	     CapituloVisualizado cp = (CapituloVisualizado) other;
-
-         if (this.getId() == cp.getId()) return true;
-         else return false;
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((capitulo == null) ? 0 : capitulo.hashCode());
+		result = prime * result + ((factura == null) ? 0 : factura.hashCode());
+		result = prime * result + ((fecha == null) ? 0 : fecha.hashCode());
+		result = prime * result + id;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CapituloVisualizado other = (CapituloVisualizado) obj;
+		if (capitulo == null) {
+			if (other.capitulo != null)
+				return false;
+		} else if (!capitulo.equals(other.capitulo))
+			return false;
+		if (factura == null) {
+			if (other.factura != null)
+				return false;
+		} else if (!factura.equals(other.factura))
+			return false;
+		if (fecha == null) {
+			if (other.fecha != null)
+				return false;
+		} else if (!fecha.equals(other.fecha))
+			return false;
+		if (id != other.id)
+			return false;
+		return true;
 	}
 	@Override
 	public int compareTo(CapituloVisualizado capi){
 		return Integer.compare(this.getId(),capi.getId());
+	}
+	@Override
+	public String toString() {
+		return "CapituloVisualizado [id=" + id + ", fecha=" + fecha + ", capitulo=" + capitulo + ", factura=" + factura
+				+ "]";
 	}	
 	
 		

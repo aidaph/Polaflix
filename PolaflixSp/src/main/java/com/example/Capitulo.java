@@ -1,11 +1,16 @@
 package com.example;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * @(#) Capítulo.java
@@ -19,11 +24,11 @@ public class Capitulo implements Comparable<Capitulo>
 	private String nombre; 
     private int num;
 	private String descripcion;
-	private float precio;
-	
-	@ManyToOne
+	private double precio;
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "tempo_id")
 	private Temporada tempo;
-	
+
 	/**
 	   * Constructor for Capitulo class
 	   *
@@ -31,16 +36,19 @@ public class Capitulo implements Comparable<Capitulo>
 	   * @param nombre nombre del Actor
 	   * @param num numero de capitulo dentro de la temporada 
 	   * @param descripcion descripción del capítulo
-	   * @param precio precio por capítulo dependiendo de la serie 
+	   * @param  precio por capítulo dependiendo de la serie 
 	   * @param tempo Temporada del capítulo
 	   * 
 	   */
-	public Capitulo(String nombre, int num, String descripcion, float precio, Temporada tempo){
+	public Capitulo(String nombre, int num, String descripcion, double precio){
 		this.nombre=nombre;
 		this.num=num;
 		this.descripcion=descripcion;
 		this.precio=precio;	
-		this.tempo=tempo;
+		//this.tempo=tempo;
+	}
+	public Capitulo(){
+		
 	}
 	// Getters and Setters
 	public void setId( int id ) {
@@ -67,44 +75,66 @@ public class Capitulo implements Comparable<Capitulo>
 	public String getDes(){
 		return this.descripcion;
 	}
-	public void setPrecio(float precio){
+	public void setPrecio(double precio){
 		this.precio = precio;
 	}
-	public float getPrecio(){
+	public double getPrecio(){
 		return this.precio;
 	}
 	public void setTempo(Temporada tempo){
 		this.tempo=tempo;
 	}
+	@JsonIgnore
 	public Temporada getTemporada(){
 		return this.tempo;
 	}
 	
 	@Override
 	public int hashCode() {
-        int hash = 17;
-        hash = hash * 31 + id;
-        hash = hash * 31 + num;
-        hash = hash * 31 + descripcion.hashCode();
-        hash = hash * 31 + (int) precio;
-        return hash;
-    }
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((descripcion == null) ? 0 : descripcion.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		result = prime * result + num;
+		long temp;
+		temp = Double.doubleToLongBits(precio);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((tempo == null) ? 0 : tempo.hashCode());
+		return result;
+	}
 	
 	@Override
-	public boolean equals(Object other){
-		boolean e = false;
-		 if (other == this) 
-			e = true;
-	     if (!(other instanceof Capitulo)) {
-	        e= false;
-	     }
-	     if(((Capitulo) other).getId() == this.getId()){
-	    	 e = true;
-	     }
-	     if (((Capitulo) other).getNum() == this.num && ((Capitulo) other).getTemporada() == this.getTemporada()){
-	    	 e = true;
-	     }
-	     return e;
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Capitulo other = (Capitulo) obj;
+		if (descripcion == null) {
+			if (other.descripcion != null)
+				return false;
+		} else if (!descripcion.equals(other.descripcion))
+			return false;
+		if (id != other.id)
+			return false;
+		if (nombre == null) {
+			if (other.nombre != null)
+				return false;
+		} else if (!nombre.equals(other.nombre))
+			return false;
+		if (num != other.num)
+			return false;
+		if (Double.doubleToLongBits(precio) != Double.doubleToLongBits(other.precio))
+			return false;
+		if (tempo == null) {
+			if (other.tempo != null)
+				return false;
+		} else if (!tempo.equals(other.tempo))
+			return false;
+		return true;
 	}
 	
 	//@Override
@@ -126,11 +156,10 @@ public class Capitulo implements Comparable<Capitulo>
 	 * 
 	 * @return a string representation of the course
 	 */
-	public String toString()
-	{
-	    String result = "Capitulo número "+this.getNum()+" de la temporada " + 
-	                     this.getTemporada()+ " de la serie "+this.getTemporada().getSerie()+
-	                     " se titula"+this.getNombre()+" y tiene un precio de "+this.getPrecio();
-	    return result;    
-	}	
+	@Override
+	public String toString() {
+		return "Capitulo num=" + num + ", nombre=" + nombre + ", descripcion=" + descripcion
+				+ ", precio=" + precio ;
+	}
+	
 }

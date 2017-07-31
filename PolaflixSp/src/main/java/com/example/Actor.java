@@ -1,10 +1,18 @@
 package com.example;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+
 
 /**
  * Clase Actor que trabaja en una serie
@@ -19,7 +27,9 @@ public class Actor implements Comparable<Actor>
 	@GeneratedValue
 	private int id;
 	private String nombre;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "serie_id")
+	@JsonIgnore
 	private Serie serie;
 
 	/**
@@ -29,10 +39,12 @@ public class Actor implements Comparable<Actor>
 	   * @param nombre nombre del Actor
 	   * @param serie Serie a la que pertenece el actor
 	   */
-	public Actor(int id,String nombre, Serie serie){
+	public Actor(int id, String nombre){
 		this.id=id;
 		this.nombre = nombre;
-		this.serie=serie;
+		//this.serie=serie;
+	}
+	public Actor(){
 	}
 	
 	// Getters and Setters
@@ -57,26 +69,37 @@ public class Actor implements Comparable<Actor>
 		return serie;
 	}
 	
-	/*@Override
+	@Override
 	public int hashCode() {
-        int hash = 1;
-        hash = hash * 17 + id;
-        hash = hash * 31 + nombre.hashCode();
-        return hash;
-    }*/
-	@Override public int hashCode() {
-	     return this.hashCode();
-	 }
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		return result;
+	}
 	
 	@Override
-	public boolean equals(Object other){
-		 if (other == this) return true;
-	     if (!(other instanceof Actor)) {
-	        return false;
-	     }
-         Actor actor = (Actor) other;
-
-         return actor.getNombre().equals(nombre);
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Actor other = (Actor) obj;
+		if (id != other.id)
+			return false;
+		if (nombre == null) {
+			if (other.nombre != null)
+				return false;
+		} else if (!nombre.equals(other.nombre))
+			return false;
+		if (serie == null) {
+			if (other.serie != null)
+				return false;
+		} else if (!serie.equals(other.serie))
+			return false;
+		return true;
 	}
 	
 	/**
@@ -88,16 +111,12 @@ public class Actor implements Comparable<Actor>
 	public int compareTo(Actor actor){
 		return Integer.compare(this.getId(),actor.getId());
 	}
-	
-	/**
-	 * Creates and returns a string representation of this Actor.
-	 * 
-	 * @return a string representation of the course
-	 */
-	public String toString()
-	{
-	    String result = nombre;
-	    return result; 
+	@Override
+	public String toString() {
+		return nombre;
 	}
+
+	
+	
 	
 }

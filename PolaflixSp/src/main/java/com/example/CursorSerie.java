@@ -3,7 +3,10 @@ package com.example;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * @(#) CursorSerie.java
@@ -16,7 +19,29 @@ public class CursorSerie implements Comparable<CursorSerie>
 	private int id;
 	@OneToOne
 	private Temporada ultimaTemporada;
+	@OneToOne
+	private Capitulo ultimoCapitulo;
+	@OneToOne 
+	@JoinColumn(name = "user_id")
+	private Usuario user;
+	@OneToOne
+	@JoinColumn(name = "serie_id")
+	private Serie serie;
 	
+	@JsonIgnore
+	public Serie getSerie() {
+		return serie;
+	}
+	public void setSerie(Serie serie) {
+		this.serie = serie;
+	}
+	@JsonIgnore
+	public Usuario getUser() {
+		return user;
+	}
+	public void setUser(Usuario user) {
+		this.user = user;
+	}
 	/*
 	 * Constructor para CursorSerie
 	 * 
@@ -26,6 +51,9 @@ public class CursorSerie implements Comparable<CursorSerie>
 	public CursorSerie(int id, Temporada ultimaTemporada){
 		this.id=id;
 		this.ultimaTemporada=ultimaTemporada;
+	}
+	public CursorSerie(){
+		
 	}
 	
 	//Getters y setters

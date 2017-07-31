@@ -34,6 +34,8 @@ public class Cargos implements Comparable<Cargos>
 		this.id=id;
 		this.listaFacturas=listaFacturas;
 	}
+	public Cargos(){
+	}
 	
 	//Getters and Setters
 	public void setId(int id){
